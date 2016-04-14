@@ -15,8 +15,9 @@ public class TheMenuGame
      */
     public TheMenuGame()
     {
-        gold = 0;
-        health= 100;
+        this.gold = 0;
+        this.health= 100;
+        GameViewer start= new GameViewer();
     }
 
     
