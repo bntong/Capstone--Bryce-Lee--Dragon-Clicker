@@ -1,4 +1,5 @@
 import java.util.*;
+import java.awt.*;
 /**
  * This will create the JPanel, so you will be able to view the pictures that appear. 
  * 
@@ -13,7 +14,6 @@ public class GameViewer
      */
     public GameViewer()
     {
-        
         
     }
 
