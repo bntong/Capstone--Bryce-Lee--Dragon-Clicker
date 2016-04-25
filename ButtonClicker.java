@@ -25,11 +25,13 @@ public class ButtonClicker
     // Buttons^^^^^
     private JPanel panel;
     private JPanel panelTop;
+    private JPanel monsterPanel;
     // Panels^^^^^
     private JLabel label;
     private JLabel label2;
     // Labels^^^^^
-    private JPanel monsterPanel;
+    MonsterDisplayer monster= new MonsterDisplayer();
+    
     
     public ButtonClicker()
     {
@@ -78,7 +80,12 @@ public class ButtonClicker
     {
         ButtonClicker view= new ButtonClicker();
     }
-
+    
+    public void labelDisplay()
+    {
+        label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
+        label2.setText("You need: "+ needed+" coin to level");
+    }
     public class ClickListener implements ActionListener
     {
 
@@ -98,15 +105,13 @@ public class ButtonClicker
                     multiplier++;
                 }
                }
-              label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
-              label2.setText("You need: "+ needed+" coins to level");
+              labelDisplay();
             }
             if(action.equals("Collect"))
             {
                 coins+=tempkills;
                 tempkills=0;
-                label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
-                label2.setText("You need: "+ needed+" coin to level");
+                labelDisplay();
             }
             if (action.equals("Level Up"))
             {
@@ -115,8 +120,7 @@ public class ButtonClicker
                     damage++;
                     coins-=needed;
                     needed+=5;
-                    label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
-                    label2.setText("You need: "+ needed+" coin to level");
+                    labelDisplay();
                 }
             }
         }
