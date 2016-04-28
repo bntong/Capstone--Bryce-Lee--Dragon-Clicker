@@ -1,6 +1,7 @@
 import javax.swing.*; // JFrame, JButton, JPanel, JLabel;
 import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
+import java.awt.*;
 import java.awt.BorderLayout;
 
 public class ButtonClicker
@@ -9,12 +10,12 @@ public class ButtonClicker
     private static final int FRAME_HEIGHT= 500;
     private String action;
     // 
-    private int health;
-    private int coins;
-    private int kills;
-    private int tempkills;
-    private int multiplier;
-    private int damage;
+    private int health; // health on boss.
+    private int coins; // Keeps track of how many coins.
+    private int kills; // Keep track of how many kills.
+    private int tempkills; //needed when collecting
+    private int multiplier; // multiples the coins when collect
+    private int damage; // amount of damage done by you
     private int needed; //coins for levelup
     // Variables 
     private JFrame frame;// Frames can only have one component
@@ -30,7 +31,6 @@ public class ButtonClicker
     private JLabel label;
     private JLabel label2;
     // Labels^^^^^
-    MonsterDisplayer monster= new MonsterDisplayer();
     
     
     public ButtonClicker()
@@ -42,28 +42,36 @@ public class ButtonClicker
         this.multiplier=1;
         this.damage= 5;
         this.needed= 5;
+        MonsterDisplayer monster= new MonsterDisplayer();
+        BackgroundMusic music= new BackgroundMusic();
         // variables
         this.frame= new JFrame();
         this.panel= new JPanel();
         this.panelTop= new JPanel();
-        this.monsterPanel= new JPanel();
+        this.monsterPanel= new JPanel(); /////////
         this.label= new JLabel();
         this.label2= new JLabel();
         BorderLayout layout= new BorderLayout();;
-        
+        // 
         this.buttonAttack= new JButton("Attack");
         this.buttonCollect= new JButton("Collect");
         this.buttonLevelUp= new JButton("Level Up");
         // Making the buttons
+        
         this.panelTop.add(this.label,layout.NORTH);
         this.panelTop.add(this.label2,layout.SOUTH);
-  
+        
         // We put the buttons in the panel, then we add it to frame
         this.panel.add(this.buttonAttack);
         this.panel.add(this.buttonCollect);
         this.panel.add(this.buttonLevelUp);
-        //
+        // Adding Buttons to panels
+        this.panel.setBackground(Color.BLACK);
+        this.panelTop.setBackground(Color.RED);
+        this.monsterPanel.setBackground(Color.BLUE); // want to add a image    
+        // Setting Colors and background
         this.frame.add(panelTop,layout.NORTH);
+        this.frame.add(monsterPanel,layout.CENTER);
         this.frame.add(panel,layout.SOUTH);
         
         ClickListener listener= new ClickListener();
@@ -98,7 +106,7 @@ public class ButtonClicker
               if (health<=0)
                 {
                 health=100;
-                kills++;
+                kills++; 
                 tempkills= tempkills+1*multiplier;
                 if(kills%5==0)
                 {
