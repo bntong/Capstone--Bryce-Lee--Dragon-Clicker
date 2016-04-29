@@ -33,7 +33,7 @@ public class ButtonClicker
     // Labels^^^^^
     
     
-    public ButtonClicker()
+    public ButtonClicker() throws Exception
     {
         this.health= 100;
         this.coins= 0;
@@ -44,14 +44,15 @@ public class ButtonClicker
         this.needed= 5;
         MonsterDisplayer monster= new MonsterDisplayer();
         BackgroundMusic music= new BackgroundMusic();
+        
         // variables
         this.frame= new JFrame();
         this.panel= new JPanel();
         this.panelTop= new JPanel();
-        this.monsterPanel= new JPanel(); /////////
+        this.monsterPanel= new JPanel(); //
         this.label= new JLabel();
         this.label2= new JLabel();
-        BorderLayout layout= new BorderLayout();;
+        BorderLayout layout= new BorderLayout();
         // 
         this.buttonAttack= new JButton("Attack");
         this.buttonCollect= new JButton("Collect");
@@ -84,7 +85,7 @@ public class ButtonClicker
         this.frame.setVisible(true);
     }
 
-    public static void main (String[] args)
+    public static void main (String[] args) throws Exception
     {
         ButtonClicker view= new ButtonClicker();
     }

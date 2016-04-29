@@ -12,17 +12,17 @@ import java.util.Scanner;
  */
 public class BackgroundMusic
 {
-    
-    public static void main(String[] args) throws Exception
+    public BackgroundMusic() throws Exception
     {
-      String name= "file://Dragonforce-TTFAF.wav";
-      URL music= new URL(name);
+      //String name= "file://Dragonforce-TTFAF.wav";
+      URL music= this.getClass().getClassLoader().getResource("Dragonforce-TTFAF.wav");
       AudioClip clip= Applet.newAudioClip(music);
       clip.play();
-      Scanner scan= new Scanner(System.in);
-      System.out.println("Press Enter to Exit");
-      String test= scan.next();
       
+      Scanner scan= new Scanner(System.in);
     }
-    
+    public static void main(String[] args) throws Exception
+    {
+        BackgroundMusic music= new BackgroundMusic();
+    }   
 }
