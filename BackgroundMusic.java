@@ -17,9 +17,8 @@ public class BackgroundMusic
       //String name= "file://Dragonforce-TTFAF.wav";
       URL music= this.getClass().getClassLoader().getResource("Dragonforce-TTFAF.wav");
       AudioClip clip= Applet.newAudioClip(music);
-      clip.play();
+      clip.loop();
       
-      Scanner scan= new Scanner(System.in);
     }
     public static void main(String[] args) throws Exception
     {

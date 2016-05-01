@@ -4,6 +4,7 @@ import java.awt.event.ActionEvent;
 import java.awt.*;
 import java.awt.BorderLayout;
 
+
 public class ButtonClicker
 {
     private static final int FRAME_WIDTH= 350;// in pixels
@@ -30,8 +31,9 @@ public class ButtonClicker
     // Panels^^^^^
     private JLabel label;
     private JLabel label2;
+	private JLabel monsterLabel;
     // Labels^^^^^
-    
+    Image img;
     
     public ButtonClicker() throws Exception
     {
@@ -42,9 +44,8 @@ public class ButtonClicker
         this.multiplier=1;
         this.damage= 5;
         this.needed= 5;
-        MonsterDisplayer monster= new MonsterDisplayer();
+        //MonsterDisplayer monster= new MonsterDisplayer();
         BackgroundMusic music= new BackgroundMusic();
-        
         // variables
         this.frame= new JFrame();
         this.panel= new JPanel();
@@ -61,6 +62,10 @@ public class ButtonClicker
         
         this.panelTop.add(this.label,layout.NORTH);
         this.panelTop.add(this.label2,layout.SOUTH);
+
+		// Area for the monsterLabel/////////////
+		ImageIcon image= new ImageIcon("Background.jpg");
+		//////////////////////////////
         
         // We put the buttons in the panel, then we add it to frame
         this.panel.add(this.buttonAttack);
@@ -95,6 +100,7 @@ public class ButtonClicker
         label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
         label2.setText("You need: "+ needed+" coin to level");
     }
+	
     public class ClickListener implements ActionListener
     {
 
