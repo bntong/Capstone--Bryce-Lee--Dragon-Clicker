@@ -1,6 +1,5 @@
 import javax.swing.*; // JFrame, JButton, JPanel, JLabel, ImageIcon.
-import java.awt.event.ActionListener;
-import java.awt.event.ActionEvent;
+import java.awt.event.*;//ActionListener, ActionEvent, KeyListener
 import java.awt.BorderLayout;
 import java.awt.*; //Color, Image
 import java.io.*;
@@ -12,9 +11,10 @@ import java.io.*;
  */
 public class MonsterDisplayer extends JLabel
 {
-    Image[] monsterList = new Image[10];	
+    //List<ImageIcon> monsterList = new ArrayList<ImageIcon>();
+    ImageIcon[] monsterList = new ImageIcon[10];
     JFrame frame= new JFrame();
-	JLabel monster= new JLabel();
+    JLabel monster= new JLabel();
     ImageIcon currentImage;
 
     /**
@@ -22,29 +22,50 @@ public class MonsterDisplayer extends JLabel
      */
     public MonsterDisplayer() 
     {     
-		frame = new JFrame();
-        Image[] monsterList = new Image[10];
+        frame = new JFrame();
+        ImageIcon[] monsterList = new ImageIcon[10];
         JLabel sprite= new JLabel();
         ImageIcon image = new ImageIcon("Background.jpg");
-		monster.setIcon(image);
-    	frame.add(monster);
-	
-	    this.frame.setSize(500, 500);
+        monster.setIcon(image);
+        frame.add(monster);
+        KeyboardListener key= new KeyboardListener();
+        
+        this.monsterList[0]=image;
+        
+        this.frame.addKeyListener(key);
+        this.frame.setSize(500, 500);
         this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
     }
     public ImageIcon getImage()
     {
-        return currentImage;
+        return this.monsterList[0]; 
+        //currentImage;
     }
 
     public void changeSprite()
     {
-
     }
 
     public static void main (String[] args)
     {
         MonsterDisplayer mon= new MonsterDisplayer();
     }
+    public class KeyboardListener implements KeyListener
+    {
+
+        public void keyPressed(KeyEvent e)
+        {
+         //System.out.print(e.getKeyChar());
+         System.out.println(getImage());
+         getImage();
+        }
+        public void keyReleased(KeyEvent e)
+        {
+        }
+        public void keyTyped(KeyEvent e)
+        {
+        }
+    }
+        
 }
