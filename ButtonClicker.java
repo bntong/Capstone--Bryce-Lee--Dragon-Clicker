@@ -7,8 +7,8 @@ import java.awt.BorderLayout;
 
 public class ButtonClicker
 {
-    private static final int FRAME_WIDTH= 350;// in pixels
-    private static final int FRAME_HEIGHT= 500;
+    private static final int FRAME_WIDTH= 450;// in pixels
+    private static final int FRAME_HEIGHT= 600;
     private String action;
     // 
     private int health; // health on boss.
@@ -31,7 +31,7 @@ public class ButtonClicker
     // Panels^^^^^
     private JLabel label;
     private JLabel label2;
-	private JLabel monsterLabel;
+    private JLabel monsterLabel;
     // Labels^^^^^
     Image img;
     
@@ -44,15 +44,19 @@ public class ButtonClicker
         this.multiplier=1;
         this.damage= 5;
         this.needed= 5;
-        //MonsterDisplayer monster= new MonsterDisplayer();
+        MonsterDisplayer monster= new MonsterDisplayer();
         BackgroundMusic music= new BackgroundMusic();
         // variables
         this.frame= new JFrame();
+        ///
         this.panel= new JPanel();
         this.panelTop= new JPanel();
         this.monsterPanel= new JPanel(); //
+        ////
         this.label= new JLabel();
         this.label2= new JLabel();
+        //this.monsterLabel = new JLabel();
+        ///
         BorderLayout layout= new BorderLayout();
         // 
         this.buttonAttack= new JButton("Attack");
@@ -63,9 +67,10 @@ public class ButtonClicker
         this.panelTop.add(this.label,layout.NORTH);
         this.panelTop.add(this.label2,layout.SOUTH);
 
-		// Area for the monsterLabel/////////////
-		ImageIcon image= new ImageIcon("Background.jpg");
-		//////////////////////////////
+        // Area for the monsterLabel/////////////
+        ImageIcon image= new ImageIcon("Background.jpg");
+        //this.monsterLabel.setIcon(image);
+        //////////////////////////////
         
         // We put the buttons in the panel, then we add it to frame
         this.panel.add(this.buttonAttack);
@@ -74,7 +79,8 @@ public class ButtonClicker
         // Adding Buttons to panels
         this.panel.setBackground(Color.BLACK);
         this.panelTop.setBackground(Color.RED);
-        this.monsterPanel.setBackground(Color.BLUE); // want to add a image    
+        //this.monsterPanel.add(this.monsterLabel);
+        this.monsterPanel.setBackground(Color.GRAY); // want to add a image    
         // Setting Colors and background
         this.frame.add(panelTop,layout.NORTH);
         this.frame.add(monsterPanel,layout.CENTER);
@@ -85,9 +91,11 @@ public class ButtonClicker
         buttonCollect.addActionListener(listener);
         buttonLevelUp.addActionListener(listener);
 
+        
         this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
         this.frame.setVisible(true);
+        this.frame.setResizable(false);
     }
 
     public static void main (String[] args) throws Exception
@@ -100,7 +108,7 @@ public class ButtonClicker
         label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
         label2.setText("You need: "+ needed+" coin to level");
     }
-	
+    
     public class ClickListener implements ActionListener
     {
 
@@ -137,6 +145,7 @@ public class ButtonClicker
                     needed+=5;
                     labelDisplay();
                 }
+                  
             }
         }
 

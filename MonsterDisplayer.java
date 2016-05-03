@@ -4,10 +4,10 @@ import java.awt.BorderLayout;
 import java.awt.*; //Color, Image
 import java.io.*;
 /**
- * Write a description of class Monsters here.
+ * MonsterDisplayer is a class that is used to chagne the monster sprites that appear in ButtonClicker.
  * 
- * @author (your name) 
- * @version (a version number or a date)
+ * @author Bryce Lee 
+ * @version 5/3/2016
  */
 public class MonsterDisplayer extends JLabel
 {
@@ -24,18 +24,28 @@ public class MonsterDisplayer extends JLabel
     {     
         frame = new JFrame();
         ImageIcon[] monsterList = new ImageIcon[10];
-        JLabel sprite= new JLabel();
+        //JLabel sprite= new JLabel();
         ImageIcon image = new ImageIcon("Background.jpg");
-        monster.setIcon(image);
-        frame.add(monster);
+        monster.setIcon(image);// Label
+        //frame.add(monster);
         KeyboardListener key= new KeyboardListener();
         
         this.monsterList[0]=image;
+        this.monsterList[1]=image;
+        this.monsterList[2]=image;
+        this.monsterList[3]=image;
+        this.monsterList[4]=image;
+        this.monsterList[5]=image;
+        this.monsterList[6]=image;
+        this.monsterList[7]=image;
+        this.monsterList[8]=image;
+        this.monsterList[9]=image;
+        
         
         this.frame.addKeyListener(key);
         this.frame.setSize(500, 500);
-        this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
-        this.frame.setVisible(true);
+        //this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
+        //this.frame.setVisible(true);
     }
     public ImageIcon getImage()
     {
