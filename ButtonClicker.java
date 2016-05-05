@@ -11,7 +11,7 @@ public class ButtonClicker
     private static final int FRAME_HEIGHT= 600;
     private String action;
     // 
-    private int health; // health on boss.
+    private int bossHealth; // health on boss.
     private int coins; // Keeps track of how many coins.
     private int kills; // Keep track of how many kills.
     private int tempkills; //needed when collecting
@@ -37,7 +37,7 @@ public class ButtonClicker
     
     public ButtonClicker() throws Exception
     {
-        this.health= 100;
+        this.bossHealth= 100;
         this.coins= 0;
         this.kills=0;
         this.tempkills=0;
@@ -90,7 +90,6 @@ public class ButtonClicker
         buttonAttack.addActionListener(listener);
         buttonCollect.addActionListener(listener);
         buttonLevelUp.addActionListener(listener);
-
         
         this.frame.setSize(FRAME_WIDTH, FRAME_HEIGHT);
         this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
@@ -105,7 +104,7 @@ public class ButtonClicker
     
     public void labelDisplay()
     {
-        label.setText("HP: " + health+"\t"+" Coins: " +coins+" Kills: "+kills);
+        label.setText("Boss HP: " + bossHealth+"\t"+" Coins: " +coins+" Kills: "+kills);
         label2.setText("You need: "+ needed+" coin to level");
     }
     
@@ -117,10 +116,10 @@ public class ButtonClicker
             action=event.getActionCommand();
             if(action.equals("Attack"))
             {
-              health-= damage;
-              if (health<=0)
+              bossHealth-= damage;
+              if (bossHealth<=0)
                 {
-                health=100;
+                bossHealth=100;
                 kills++; 
                 tempkills= tempkills+1*multiplier;
                 if(kills%5==0)
