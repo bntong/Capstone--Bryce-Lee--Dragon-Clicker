@@ -3,8 +3,6 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.*;
 import java.awt.BorderLayout;
-
-
 public class ButtonClicker
 {
     private static final int FRAME_WIDTH= 450;// in pixels
@@ -24,7 +22,7 @@ public class ButtonClicker
     private JButton buttonAttack;
     private JButton buttonCollect;
     private JButton buttonLevelUp;
-    // Buttons^^^^^
+    // Buttons^^^^
     private JPanel panel;
     private JPanel panelTop;
     private JPanel monsterPanel;
@@ -33,7 +31,8 @@ public class ButtonClicker
     private JLabel label2;
     private JLabel monsterLabel;
     // Labels^^^^^
-    Image img;
+    MonsterDisplayer monster;
+    ImageIcon currentImage;
     
     public ButtonClicker() throws Exception
     {
@@ -44,18 +43,19 @@ public class ButtonClicker
         this.multiplier=1;
         this.damage= 5;
         this.needed= 5;
-        MonsterDisplayer monster= new MonsterDisplayer();
+                   this.monster= new MonsterDisplayer();
         BackgroundMusic music= new BackgroundMusic();
+                   this.currentImage= monster.getImage();
         // variables
         this.frame= new JFrame();
         ///
         this.panel= new JPanel();
         this.panelTop= new JPanel();
-        this.monsterPanel= new JPanel(); //
+                   this.monsterPanel= new JPanel(); //
         ////
         this.label= new JLabel();
         this.label2= new JLabel();
-        //this.monsterLabel = new JLabel();
+                   this.monsterLabel = new JLabel();
         ///
         BorderLayout layout= new BorderLayout();
         // 
@@ -69,7 +69,7 @@ public class ButtonClicker
 
         // Area for the monsterLabel/////////////
         ImageIcon image= new ImageIcon("Background.jpg");
-        //this.monsterLabel.setIcon(image);
+                this.monsterLabel.setIcon(currentImage);
         //////////////////////////////
         
         // We put the buttons in the panel, then we add it to frame
@@ -80,8 +80,9 @@ public class ButtonClicker
         this.panel.setBackground(Color.BLACK);
         this.panelTop.setBackground(Color.RED);
         //this.monsterPanel.add(this.monsterLabel);
-        this.monsterPanel.setBackground(Color.GRAY); // want to add a image    
+        //this.monsterPanel.setBackground(image); // want to add a image    
         // Setting Colors and background
+        this.frame.add(monsterLabel);
         this.frame.add(panelTop,layout.NORTH);
         this.frame.add(monsterPanel,layout.CENTER);
         this.frame.add(panel,layout.SOUTH);
@@ -121,6 +122,7 @@ public class ButtonClicker
                 {
                 bossHealth=100;
                 kills++; 
+                monster.changeSprite();
                 tempkills= tempkills+1*multiplier;
                 if(kills%5==0)
                 {
