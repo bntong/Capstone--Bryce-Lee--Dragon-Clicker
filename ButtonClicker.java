@@ -82,9 +82,9 @@ public class ButtonClicker
         //this.monsterPanel.add(this.monsterLabel);
         //this.monsterPanel.setBackground(image); // want to add a image    
         // Setting Colors and background
-        this.frame.add(monsterLabel);
+                 
         this.frame.add(panelTop,layout.NORTH);
-        this.frame.add(monsterPanel,layout.CENTER);
+        this.frame.add(monsterLabel,layout.CENTER);
         this.frame.add(panel,layout.SOUTH);
         
         ClickListener listener= new ClickListener();
@@ -123,6 +123,8 @@ public class ButtonClicker
                 bossHealth=100;
                 kills++; 
                 monster.changeSprite();
+                currentImage= monster.getImage();
+                monsterLabel.setIcon(currentImage);
                 tempkills= tempkills+1*multiplier;
                 if(kills%5==0)
                 {
