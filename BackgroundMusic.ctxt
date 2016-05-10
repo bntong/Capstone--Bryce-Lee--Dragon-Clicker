@@ -1,6 +1,8 @@
 #BlueJ class context
 comment0.params=
 comment0.target=BackgroundMusic()
+comment0.text=\r\n\ This\ is\ the\ constructor\ of\ Background\ Music.\ \r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ Will\ start\ the\ music\ when\ the\ program\ is\ run.\r\n
 numComments=2

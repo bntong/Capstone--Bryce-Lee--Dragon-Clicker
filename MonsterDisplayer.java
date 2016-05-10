@@ -1,11 +1,12 @@
-import javax.swing.*; // JFrame, JButton, JPanel, JLabel, ImageIcon.
 import java.awt.event.*;//ActionListener, ActionEvent, KeyListener
-import java.awt.BorderLayout;
+import javax.swing.*; // JFrame, JButton, JPanel, JLabel, ImageIcon.
+import java.util.*;
 import java.awt.*; //Color, Image
 import java.io.*;
-import java.util.*;
+import java.awt.BorderLayout;
 /**
- * MonsterDisplayer is a class that is used to chagne the monster sprites that appear in ButtonClicker.
+ * MonsterDisplayer is a class that is used to change the monster sprites 
+ * that appear in ButtonClicker.
  * 
  * @author Bryce Lee 
  * @version 5/3/2016
@@ -24,13 +25,10 @@ public class MonsterDisplayer extends JLabel
      */
     public MonsterDisplayer() 
     {     
-        //frame = new JFrame();
-        //panel = new JPanel();
         this.num =0;
         ImageIcon[] monsterList = new ImageIcon[7];
         JLabel sprite= new JLabel();
-        //ImageIcon image = new ImageIcon("Background.jpg");
-        
+
         this.monsterList[0]=new ImageIcon("Background.jpg");
         this.monsterList[1]=new ImageIcon("BlackDragon.png");
         this.monsterList[2]=new ImageIcon("Dragon1.png");
@@ -38,35 +36,35 @@ public class MonsterDisplayer extends JLabel
         this.monsterList[4]=new ImageIcon("LicheDragon.png");
         this.monsterList[5]=new ImageIcon("Metallic_Dragon.png");
         this.monsterList[6]=new ImageIcon("Muspelheim.png");
-        //monster.setIcon(image);// Label
+
         monster.setIcon((ImageIcon)this.monsterList[(int)num]);
-        //panel.add(monster);
-        //frame.add(panel);
         KeyboardListener key= new KeyboardListener();
         Random gen= new Random();
-        
-        
-        //this.frame.addKeyListener(key);
-        //this.frame.setSize(500, 500);
-        //this.frame.setDefaultCloseOperation( JFrame.EXIT_ON_CLOSE);
-        //this.frame.setVisible(true);
+
     }
+
+    /**
+     * This method will choose a random ImageIcon from the list created.
+     * @return Returns an ImageIcon object using a specific string
+     */
     public ImageIcon getImage()
     {
-        this.num= Math.random()*7.0;
+        this.num= Math.random()*monsterList.length;
         return this.monsterList[(int)this.num]; 
-        //currentImage;
     }
 
-    public void changeSprite()
-    {
-        monster.setIcon((ImageIcon)this.monsterList[(int)this.num]);
-        revalidate();
-        repaint();
-        //panel.add(monster);
-        
-    }
-
+    //     /**
+    //      * this will change the 
+    //      */
+    //     public void changeSprite()
+    //     {
+    //         monster.setIcon((ImageIcon)this.monsterList[(int)this.num]);
+    //         revalidate();
+    //         repaint();
+    //     }
+    /**
+     *  This will start the MonsterDisplayer when called upon.
+     */
     public static void main (String[] args)
     {
         MonsterDisplayer mon= new MonsterDisplayer();
@@ -76,17 +74,16 @@ public class MonsterDisplayer extends JLabel
 
         public void keyPressed(KeyEvent e)
         {
-            
-         //System.out.println(getImage());
-         getImage();
-         changeSprite();
+            getImage();
         }
+
         public void keyReleased(KeyEvent e)
         {
         }
+
         public void keyTyped(KeyEvent e)
         {
         }
     }
-        
+
 }

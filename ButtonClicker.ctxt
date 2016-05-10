@@ -1,8 +1,11 @@
 #BlueJ class context
 comment0.params=
 comment0.target=ButtonClicker()
+comment0.text=\r\n\ Constructor\ of\ ButtonClicker.\ \r\n
 comment1.params=args
 comment1.target=void\ main(java.lang.String[])
+comment1.text=\r\n\ \ Starts\ the\ game\ when\ called\ upon.\r\n
 comment2.params=
 comment2.target=void\ labelDisplay()
+comment2.text=\r\n\ Update\ the\ text\ for\ all\ labels.\r\n
 numComments=3
