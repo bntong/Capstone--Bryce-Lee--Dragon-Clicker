@@ -3,6 +3,11 @@ import java.awt.event.ActionListener;
 import java.awt.event.ActionEvent;
 import java.awt.*;
 import java.awt.BorderLayout;
+/**
+ * The class that starts the program. 
+ *  
+ *  @author Bryce Lee
+ */
 public class ButtonClicker
 {
     private static final int FRAME_WIDTH= 450;// in pixels
@@ -128,7 +133,9 @@ public class ButtonClicker
     {
 
         /**
-         * Updating all variables, so the player can see the 
+         * Updating all variables. Attack
+         * 
+         * @param Action Event
          */
         public void actionPerformed(ActionEvent event)
         {

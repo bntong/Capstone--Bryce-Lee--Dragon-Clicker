@@ -29,3 +29,10 @@ This capstone includes how a user interacts with a program, graphics, actionlist
 This capstone also included various concepts outside the learning environment, such as
 implementing music to a program and making it loop, dealing with unused packages in AP Computer Science,
 and use of different type such as IconImage, and AudioClip.
+
+THINGS I WANTED TO ADD:
+- More sprites, and maybe try and make the sprites animated (gif files)
+- More buttons/ abilities for the player (Gets boring after you keep clicking for a while)
+- A better design, because everything was a solid color (Wanted to add a static background)
+- Different control settings (Once you get to a certain level, you can start using the keys to attack)
+- 

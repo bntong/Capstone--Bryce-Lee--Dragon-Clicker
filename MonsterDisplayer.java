@@ -53,15 +53,6 @@ public class MonsterDisplayer extends JLabel
         return this.monsterList[(int)this.num]; 
     }
 
-    //     /**
-    //      * this will change the 
-    //      */
-    //     public void changeSprite()
-    //     {
-    //         monster.setIcon((ImageIcon)this.monsterList[(int)this.num]);
-    //         revalidate();
-    //         repaint();
-    //     }
     /**
      *  This will start the MonsterDisplayer when called upon.
      */

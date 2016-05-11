@@ -1,7 +1,8 @@
 import java.applet.*; // AudioClip, Applet
 import java.net.URL;
 /**
- * BackgroundMusic will play the start the background music when the program runs.
+ * This class is BackgroundMusic, and it will start playing the 
+ * background music when the program first runs.
  * 
  * @author Bryce Lee 
  * @version 4/28/2016
